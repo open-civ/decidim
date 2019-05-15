@@ -116,7 +116,7 @@ end
                     <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
                   <% end %>
                 <% end %>
-                <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+                <li><%#= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
               </ul>
           </div>
           <%= render partial: "layouts/decidim/social_media_links" %>
@@ -135,9 +135,9 @@ end
           <div class="medium-3 large-2 column">
             <div class="decidim-logo">
               <a rel="decidim"
-                 href="https://decidim.org/"
+                 href="#"
                  target="_blank">
-                <%= image_tag("decidim/decidim-logo.svg", alt: "Decidim Logo" ) %>
+                <%#= image_tag("decidim/decidim-logo.svg", alt: "Decidim Logo" ) %>
               </a>
             </div>
           </div>

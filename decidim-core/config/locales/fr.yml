@@ -705,7 +705,7 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -845,9 +845,9 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Des pages
+        standalone_pages: Autres
         subheading: Naviguer à travers les pages d'aide de %{name}
-        title: Aidez-moi
+        title: Aide
         topics: Les sujets
       participatory_space:
         metrics:

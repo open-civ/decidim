@@ -13,6 +13,51 @@ describe "Initiatives", type: :system do
     switch_to_host(organization.host)
   end
 
+  context "when there are no initiatives and directly accessing from URL" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_initiatives.initiatives_path }
+    end
+  end
+  
+  context "when there are no initiatives and accessing from the homepage" do
+    it "the menu link is not shown" do
+      visit decidim.root_path
+
+      within ".main-nav" do
+        expect(page).to have_no_content("Initiatives")
+      end
+    end
+  end
+  
+  context "when the initiative does not exist" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_initiatives.initiatives_path(99_999_999) }
+    end
+  end
+  
+  context "when there are some initiatives and all are unpublished" do
+    before do
+      create(:initiative, :unpublished, organization: organization)
+      create(:initiative, :published)
+    end
+
+    context "and directly accessing from URL" do
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim_initiatives.initiatives_path }
+      end
+    end
+
+    context "and accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_no_content("Initiatives")
+        end
+      end
+    end
+  end
+  
   context "when there are some published initiatives" do
     let!(:initiative) { base_initiative }
     let!(:unpublished_initiative) do
@@ -30,7 +75,7 @@ describe "Initiatives", type: :system do
 
     it_behaves_like "editable content for admins"
 
-    context "when accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is shown" do
         visit decidim.root_path
 

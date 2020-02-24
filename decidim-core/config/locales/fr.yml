@@ -1176,7 +1176,7 @@ fr:
         edit: Modifier
       footer:
         download_open_data: Télécharger les fichiers Open Data
-        made_with_open_source: Site réalisé par <a target="_blank" href="#">Open Initiativ</a>.
+        made_with_open_source: Site réalisé par <a target="_blank" href="https://openinitiativ.xyz">Open Initiativ</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
